@@ -1,0 +1,31 @@
+name: chanllene_1
+
+on: push
+
+jobs:
+    job1:
+        name: First Job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step one
+              run:  date
+    job2:
+        name: Second Job
+        runs-on: windows-latest
+        steps:
+           - name: Step one
+             run: "echo %date%"
+    job3:
+        name: Third Job
+        runs-on: mac-latest
+        steps:
+            - name: Step one
+              run: date
+    job4:
+        needs: [job1, job2, job3]
+        name: Forth Job
+        runs-on: windows-latest
+        steps:
+            - name: Step one
+              run: "date /t"
+          
