@@ -1,28 +1,28 @@
-name: chanllene_1
+name: complex
 
 on: push
 
 jobs:
-    job1:
+    ubuntu:
         name: First Job
         runs-on: ubuntu-latest
         steps:
             - name: Step one
               run:  date
-    job2:
+    windows:
         name: Second Job
         runs-on: windows-latest
         steps:
            - name: Step one
              run: "echo %date%"
-    job3:
+    macos:
         name: Third Job
-        runs-on: mac-latest
+        runs-on: macos-latest
         steps:
             - name: Step one
               run: date
     job4:
-        needs: [job1, job2, job3]
+        needs: [ubuntu, windows, macos]
         name: Forth Job
         runs-on: windows-latest
         steps:
